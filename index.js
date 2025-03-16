@@ -8,7 +8,7 @@ const productRoutes=require("./routes/ProductRoutes")
 const bodyParser = require("body-parser");
 const app = express();
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 dotEnv.config();
 
 mongoose
@@ -23,6 +23,6 @@ app.use("/vendor",VendorRoutes)
 app.use("/firm",FirmRoutes)
 app.use("/products",productRoutes)
 app.use('/uploads',express.static('uploads'))
-app.use("/home", (req, res) => {
+app.use("/", (req, res) => {
   res.send("<h1>Welcome to swiggy");
 });
