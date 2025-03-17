@@ -6,10 +6,12 @@ const VendorRoutes = require("./routes/VendorRoutes")
 const FirmRoutes = require("./routes/FirmRoutes")
 const productRoutes=require("./routes/ProductRoutes")
 const bodyParser = require("body-parser");
+const cors = require("cors")
 const app = express();
 
 const PORT = process.env.PORT || 4000;
 dotEnv.config();
+app.use(cors())
 
 mongoose
   .connect(process.env.MONGO_URI)
